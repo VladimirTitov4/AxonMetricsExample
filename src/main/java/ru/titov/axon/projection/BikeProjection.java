@@ -2,17 +2,22 @@ package ru.titov.axon.projection;
 
 import lombok.RequiredArgsConstructor;
 import org.axonframework.eventhandling.EventHandler;
+import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Service;
 import ru.titov.axon.cqrs.bike.event.BikeCreatedEvent;
 import ru.titov.axon.cqrs.bike.event.BikeDeletedEvent;
 import ru.titov.axon.cqrs.bike.event.BikeRentedEvent;
 import ru.titov.axon.cqrs.bike.event.BikeReturnedEvent;
 import ru.titov.axon.cqrs.bike.event.BikeUpdatedEvent;
+import ru.titov.axon.cqrs.bike.query.AllBikesQuery;
 import ru.titov.axon.data.model.Bike;
 import ru.titov.axon.data.model.EntityMapper;
 import ru.titov.axon.data.repository.BikeRepository;
+import ru.titov.axon.data.view.BikeView;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -57,5 +62,12 @@ public class BikeProjection {
     @EventHandler
     public void on(BikeDeletedEvent event) {
         repository.deleteById(event.getId());
+    }
+
+    @QueryHandler
+    public List<BikeView> handle(AllBikesQuery query) {
+        return repository.findAll().stream()
+                .map(mapper::map)
+                .collect(Collectors.toList());
     }
 }
