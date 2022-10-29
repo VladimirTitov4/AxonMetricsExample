@@ -46,6 +46,7 @@ public class BikeProjection {
                 .orElseThrow(() -> new EntityNotFoundException("Bike with id not found " + event.getId()));
         bike.setRented(false);
         bike.setRenterId(null);
+        bike.setMileage(bike.getMileage() + event.getMileageRidden());
         repository.save(bike);
     }
 

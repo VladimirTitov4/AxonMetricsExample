@@ -3,6 +3,7 @@ package ru.titov.axon.aggregate;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 import ru.titov.axon.cqrs.bike.command.CreateBikeCommand;
@@ -23,6 +24,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class BikeAggregate {
 
+    @AggregateIdentifier
     private UUID id;
     private UUID renterId;
     private String name;

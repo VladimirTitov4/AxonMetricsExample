@@ -9,7 +9,7 @@ import ru.titov.axon.cqrs.renter.event.RenterUpdatedEvent;
 import ru.titov.axon.data.view.BikeView;
 import ru.titov.axon.data.view.RenterView;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface EntityMapper {
 
     Bike map(BikeCreatedEvent event);

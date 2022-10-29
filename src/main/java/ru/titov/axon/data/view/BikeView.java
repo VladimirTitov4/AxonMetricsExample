@@ -14,5 +14,6 @@ public class BikeView {
     String description;
     Instant createdAt;
     boolean rented;
+    double mileage;
 
 }
