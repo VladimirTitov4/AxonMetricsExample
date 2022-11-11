@@ -5,7 +5,3 @@
 3. go to prometheus localhost:9090/targets check that axon-application &  axon-server are having state up
 4. go to grafana localhost:3000, add datasource, go to dash boards, import axon-server dashboard (grafana id: 12962) - that dashboard should work well, 
 but as for axon-framework dashboard (grafana id: 12963) there will be empty axon metrics
-
-![](../../../../Pictures/Screenshots/Screenshot from 2022-11-11 11-09-25.png)
-
-![](../../../../Pictures/Screenshots/Screenshot from 2022-11-11 11-11-07.png)
