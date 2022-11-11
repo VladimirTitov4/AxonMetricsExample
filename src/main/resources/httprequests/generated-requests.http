@@ -1,0 +1,42 @@
+###
+POST http://localhost:8080/api/v1/bike/create
+Content-Type: application/json
+
+{
+  "name": "bike 1",
+  "description": "All new bike"
+}
+
+
+###
+POST http://localhost:8080/api/v1/renter/create
+Content-Type: application/json
+
+{
+  "name": "Vladimir",
+  "lastName": "Titov",
+  "age": 36
+}
+
+###
+POST http://localhost:8080/api/v1/bike/rent
+Content-Type: application/json
+
+{
+  "bikeId": "51aa2d0d-f338-42c9-bda0-d70905609c34",
+  "renterId": "700ba978-49c5-4f22-9dd2-0c54f2378b72"
+}
+
+###
+POST http://localhost:8080/api/v1/bike/return
+Content-Type: application/json
+
+{
+  "bikeId": "51aa2d0d-f338-42c9-bda0-d70905609c34",
+  "mileageRidden": 100
+}
+
+
+###
+GET http://localhost:8080/api/v1/bike
+
